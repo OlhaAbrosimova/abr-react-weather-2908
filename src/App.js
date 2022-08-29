@@ -2,8 +2,10 @@ import "./App.css";
 
 export default function App() {
 	return (
-		<div className="App">
+		<div className="App container">
+      <div className="container">
 			<h1>Weather app Abrosimova</h1>
+			<button className="btn btn-primary">Hello</button>
 			<footer>
 				This app was built by{" "}
 				<a
@@ -23,6 +25,7 @@ export default function App() {
 					GitHub
 				</a>
 			</footer>
+      </div>
 		</div>
 	);
 }
