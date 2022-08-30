@@ -1,12 +1,13 @@
 import "./App.css";
+import Weather from "./Weather";
 
 export default function App() {
 	return (
-		<div className="App container">
-      <div className="container">
-			<h1>Weather app Abrosimova</h1>
-			<button className="btn btn-primary">Hello</button>
-			<footer>
+		<div>
+			<div className="App">
+				<Weather />
+			</div>
+			<footer className="MyGit">
 				This app was built by{" "}
 				<a
 					href="https://olhaabrosimova.netlify.app/about.html"
@@ -25,7 +26,6 @@ export default function App() {
 					GitHub
 				</a>
 			</footer>
-      </div>
 		</div>
 	);
 }
