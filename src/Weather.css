@@ -80,13 +80,15 @@
 	margin: 17px 15px 17px;
 }
 .Weather .weather-temperature {
-	text-align: right;
+	display: flex;
+	justify-content: flex-end;
 }
 .Weather .weather-temperature canvas {
 	margin-right: 5px;
-	
+	width: 62px;
+	height: 62px;
 	position: relative;
-	bottom: 7px;
+	top: 47px;
 }
 
 .Weather .base-temperature {
