@@ -8,8 +8,6 @@ export default function Weather(props) {
 	const [weatherData, setWeatherData] = useState({ ready: false });
 	const [city, setCity] = useState(props.defaultCity);
 
-	
-
 	function handleResponse(response) {
 		// console.log(response.data);
 		setWeatherData({
@@ -40,10 +38,24 @@ export default function Weather(props) {
 	function handleCityChange(event) {
 		setCity(event.target.value);
 	}
+
+	function handleCurrentLocation(event) {
+		setCity(event.target.value);
+		function handlePosition(position) {
+			const lat = position.coords.latitude;
+			const lon = position.coords.longitude;
+			const apiKey = "7fd7592386d78a3c880f783bb111932f";
+			const unit = "metric";
+			const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+			axios.get(apiUrl).then(handleResponse);
+		}
+		navigator.geolocation.getCurrentPosition(handlePosition);
+	}
+
 	if (weatherData.ready) {
 		return (
 			<div className="Weather">
-				<button className="current-geo-btn">
+				<button className="current-geo-btn" onClick={handleCurrentLocation}>
 					<strong>Current geolocation</strong>
 				</button>
 				<form onSubmit={handleSubmit}>
