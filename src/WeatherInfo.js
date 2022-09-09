@@ -4,6 +4,14 @@ import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
+	  let currentDate = new Date(props.data.date * 1000);
+
+		let locationTime =
+			(props.data.date +
+				currentDate.getTimezoneOffset() * 60 +
+				props.data.timezone) *
+			1000;
+
 	return (
 		<div className="WeatherInfo">
 			<div className="row base-temp-block">
@@ -13,7 +21,9 @@ export default function WeatherInfo(props) {
 						<li>
 							<span>
 								<FormattedDate
-									date={props.data.date}
+									// date={props.data.date}
+									time={new Date(locationTime)}
+									date={new Date(locationTime)}
 									description={props.data.description}
 								/>
 							</span>
